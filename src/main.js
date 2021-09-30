@@ -2,22 +2,16 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 
-import axios from 'axios'
-
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'development') {
   const { mockXHR } = require('../mock')
   mockXHR()
 }
 
-createApp(App).use(store).use(router).mount('#app')
-
-axios
-  .post('/dev-api/vue-element-admin/user/login', {
-    username: 'admin'
-  })
-  .then((response) => {
-    if (response.data) {
-      console.log(response.data)
-    }
-  })
+const app = createApp(App)
+app.use(store)
+app.use(router)
+app.use(ElementPlus)
+app.mount('#app')

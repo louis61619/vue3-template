@@ -20,8 +20,7 @@ const roles = [
   {
     key: 'visitor',
     name: 'visitor',
-    description:
-      'Just a visitor. Can only see the home page and the document page',
+    description: 'Just a visitor. Can only see the home page and the document page',
     routes: [
       {
         path: '',
